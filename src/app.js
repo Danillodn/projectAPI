@@ -4,7 +4,8 @@ const Post = require('./models/Posts')
 
 app.use(express.json())
 
-/* app.get('/hello_world', (req, res)=>{
+/* teste rota   
+    app.get('/hello_world', (req, res)=>{
     res.send('hello world')
 })
 
@@ -43,6 +44,28 @@ app.get('/show_post/:post_id', async (req, res) => {
         res.send({ post })
     } catch (err) {
         res.status(400).send(err)        
+    }
+})
+
+app.patch('/update_post/:post_id', async (req, res) => {
+    try {
+        const postId = req.params.post_id
+        const { title, content } = req.body
+        const post = await Post.findByIdAndUpdate(postId, { title, content }, { new: true})
+        res.send({ post })
+    } catch (err) {
+        res.status(400).send(err)
+    }
+})
+
+
+app.delete('/delete_post/:post_id', async (req, res) => {
+    try {
+        const postId = req.params.post_id
+        await Post.findByIdAndDelete(postId)
+        res.send( { msg: 'Deletado com Sucesso!' })
+    } catch (err) {
+        res.status(404).send(err)
     }
 })
 
