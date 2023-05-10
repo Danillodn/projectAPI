@@ -23,7 +23,7 @@ app.post('/create', (req, res)=>{
 })
 
 
-app.post('create_post', async (req, res) => {
+app.post('/create_post', async (req, res) => {
     try {
      const { title, content } = req.body
      const post = await Post.create({ title, content })
