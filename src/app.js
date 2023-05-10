@@ -12,8 +12,6 @@ const Post = require('./models/Posts')
 app.use(express.json())
 
 app.use(cors())
-
-  
     app.get('/hello_world', (req, res)=>{
     res.send('hello world')
 })
