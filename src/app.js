@@ -64,9 +64,7 @@ app.patch('/update_post/:post_id', async (req, res) => {
 //     } catch (err) {
 //         res.status(200).send(err)
 //     }
-    return(
-        "hello world"
-    )
+   res.send("ola")
 })
 
 
