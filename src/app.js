@@ -62,7 +62,7 @@ app.patch('/update_post/:post_id', async (req, res) => {
         const post = await Post.findByIdAndUpdate(postId, { title, description, content }, { new: true})
         res.send({ post })
     } catch (err) {
-        res.status(400).send(err)
+        res.status(200).send(err)
     }
 })
 
